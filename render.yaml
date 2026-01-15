@@ -1,23 +1,6 @@
 services:
   - type: web
-    name: karanka-trading-bot
+    name: karanka-ctrader
     env: python
-    region: oregon
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.0
-      - key: CTRADER_DEMO_CLIENT_ID
-        value: "demo_19284_CKswqQmnC5403QlDqwBG8XrvLLgfn9psFXvBVWZkOdMlORJzg2"
-      - key: CTRADER_DEMO_CLIENT_SECRET
-        value: "demo_Tix0fEqff3Kg33qhr9DC5sKHgmlHHYkSxE1UzRsFc0fmxKhbfj"
-      - key: CTRADER_DEMO_REDIRECT_URI
-        value: "https://karanka-trading-bot.onrender.com/callback/demo"
-      - key: CTRADER_LIVE_CLIENT_ID
-        value: "19284_CKswqQmnC5403QlDqwBG8XrvLLgfn9psFXvBVWZkOdMlORJzg2"
-      - key: CTRADER_LIVE_CLIENT_SECRET
-        value: "Tix0fEqff3Kg33qhr9DC5sKHgmlHHYkSxE1UzRsFc0fmxKhbfj"
-      - key: CTRADER_LIVE_REDIRECT_URI
-        value: "https://karanka-trading-bot.onrender.com/callback/live"
-    autoDeploy: true
+    startCommand: python karanka_ctrader_bot.py
